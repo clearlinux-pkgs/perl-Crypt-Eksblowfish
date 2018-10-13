@@ -4,16 +4,16 @@
 #
 Name     : perl-Crypt-Eksblowfish
 Version  : 0.009
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Crypt-Eksblowfish-0.009.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Crypt-Eksblowfish-0.009.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libcrypt-eksblowfish-perl/libcrypt-eksblowfish-perl_0.009-2.debian.tar.xz
 Summary  : 'the Eksblowfish block cipher'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-Crypt-Eksblowfish-lib
-Requires: perl-Crypt-Eksblowfish-license
-Requires: perl-Crypt-Eksblowfish-man
+Requires: perl-Crypt-Eksblowfish-lib = %{version}-%{release}
+Requires: perl-Crypt-Eksblowfish-license = %{version}-%{release}
+BuildRequires : buildreq-cpan
 BuildRequires : perl(Class::Mix)
 BuildRequires : perl(Params::Classify)
 BuildRequires : perl-Module-Build
@@ -29,10 +29,20 @@ intended to hinder brute-force attacks.  It also makes it unsuitable for
 any application requiring key agility.  It was designed by Niels Provos
 and David Mazieres for password hashing in OpenBSD.
 
+%package dev
+Summary: dev components for the perl-Crypt-Eksblowfish package.
+Group: Development
+Requires: perl-Crypt-Eksblowfish-lib = %{version}-%{release}
+Provides: perl-Crypt-Eksblowfish-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-Crypt-Eksblowfish package.
+
+
 %package lib
 Summary: lib components for the perl-Crypt-Eksblowfish package.
 Group: Libraries
-Requires: perl-Crypt-Eksblowfish-license
+Requires: perl-Crypt-Eksblowfish-license = %{version}-%{release}
 
 %description lib
 lib components for the perl-Crypt-Eksblowfish package.
@@ -46,19 +56,11 @@ Group: Default
 license components for the perl-Crypt-Eksblowfish package.
 
 
-%package man
-Summary: man components for the perl-Crypt-Eksblowfish package.
-Group: Default
-
-%description man
-man components for the perl-Crypt-Eksblowfish package.
-
-
 %prep
-tar -xf %{SOURCE1}
-cd ..
 %setup -q -n Crypt-Eksblowfish-0.009
-mkdir -p %{_topdir}/BUILD/Crypt-Eksblowfish-0.009/deblicense/
+cd ..
+%setup -q -T -D -n Crypt-Eksblowfish-0.009 -b 1
+mkdir -p deblicense/
 mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Crypt-Eksblowfish-0.009/deblicense/
 
 %build
@@ -83,12 +85,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-Crypt-Eksblowfish
-cp deblicense/copyright %{buildroot}/usr/share/doc/perl-Crypt-Eksblowfish/deblicense_copyright
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Crypt-Eksblowfish
+cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Crypt-Eksblowfish/deblicense_copyright
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -97,22 +99,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Bcrypt.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Blowfish.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Family.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Subkeyed.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Uklblowfish.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Bcrypt.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Blowfish.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Family.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Subkeyed.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Uklblowfish.pm
 
-%files lib
-%defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Crypt/Eksblowfish/Eksblowfish.so
-
-%files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-Crypt-Eksblowfish/deblicense_copyright
-
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Crypt::Eksblowfish.3
 /usr/share/man/man3/Crypt::Eksblowfish::Bcrypt.3
@@ -120,3 +114,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/Crypt::Eksblowfish::Family.3
 /usr/share/man/man3/Crypt::Eksblowfish::Subkeyed.3
 /usr/share/man/man3/Crypt::Eksblowfish::Uklblowfish.3
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/Crypt/Eksblowfish/Eksblowfish.so
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Crypt-Eksblowfish/deblicense_copyright
