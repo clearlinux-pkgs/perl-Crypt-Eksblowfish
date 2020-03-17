@@ -4,7 +4,7 @@
 #
 Name     : perl-Crypt-Eksblowfish
 Version  : 0.009
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Crypt-Eksblowfish-0.009.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Crypt-Eksblowfish-0.009.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libcrypt-eksblowfish-perl/libcrypt-eksblowfish-perl_0.009-2.debian.tar.xz
@@ -101,10 +101,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/Eksblowfish.pm
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Bcrypt.pm
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Blowfish.pm
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Family.pm
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Subkeyed.pm
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Uklblowfish.pm
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/Crypt/Eksblowfish/Eksblowfish.so
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/Crypt/Eksblowfish.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/Crypt/Eksblowfish/Bcrypt.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/Crypt/Eksblowfish/Blowfish.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/Crypt/Eksblowfish/Family.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/Crypt/Eksblowfish/Subkeyed.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/Crypt/Eksblowfish/Uklblowfish.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/auto/Crypt/Eksblowfish/Eksblowfish.so
