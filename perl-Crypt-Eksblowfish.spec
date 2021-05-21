@@ -101,10 +101,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/Eksblowfish.pm
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Bcrypt.pm
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Blowfish.pm
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Family.pm
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Subkeyed.pm
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/Eksblowfish/Uklblowfish.pm
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/auto/Crypt/Eksblowfish/Eksblowfish.so
+/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Crypt/Eksblowfish.pm
+/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Crypt/Eksblowfish/Bcrypt.pm
+/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Crypt/Eksblowfish/Blowfish.pm
+/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Crypt/Eksblowfish/Family.pm
+/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Crypt/Eksblowfish/Subkeyed.pm
+/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Crypt/Eksblowfish/Uklblowfish.pm
+/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/Crypt/Eksblowfish/Eksblowfish.so
