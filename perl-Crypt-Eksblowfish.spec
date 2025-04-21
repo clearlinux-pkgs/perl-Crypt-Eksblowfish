@@ -7,7 +7,7 @@
 #
 Name     : perl-Crypt-Eksblowfish
 Version  : 0.009
-Release  : 30
+Release  : 31
 URL      : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Crypt-Eksblowfish-0.009.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Crypt-Eksblowfish-0.009.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libc/libcrypt-eksblowfish-perl/libcrypt-eksblowfish-perl_0.009-2.debian.tar.xz
